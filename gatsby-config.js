@@ -4,13 +4,21 @@ module.exports = {
     title: "Digital Desa",
   },
   plugins: [
-    "gatsby-plugin-image",
     {
-      resolve: "gatsby-plugin-google-analytics",
+      resolve: "@chakra-ui/gatsby-plugin",
+      options: {},
+    },
+    "gatsby-plugin-root-import",
+    "@chakra-ui/gatsby-plugin",
+    {
+      resolve: `gatsby-plugin-typescript`,
       options: {
-        trackingId: "",
+        isTSX: true, // defaults to false
+        jsxPragma: `jsx`, // defaults to "React"
+        allExtensions: true, // defaults to false
       },
     },
+    "gatsby-plugin-image",
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-sitemap",
     {

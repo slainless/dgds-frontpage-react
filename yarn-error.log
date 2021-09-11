@@ -1,0 +1,68 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add @chakra-ui/gatsby-plugin @chakra-ui/react @emotion/react @emotion/styled framer-motion
+
+PATH: 
+  C:\Program Files\AdoptOpenJDK\jdk-11.0.10.9-hotspot\bin;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\ProgramData\chocolatey\bin;C:\Program Files (x86)\Yarn\bin\;C:\Program Files\Git\cmd;C:\Program Files\dotnet\;C:\Program Files (x86)\dotnet\;C:\Program Files\Inkscape\bin;C:\Program Files\010 Editor;C:\Program Files\Memurai\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\nodejs\;C:\Program Files\Go\bin;C:\Program Files\CMake\bin;C:\Users\X550DP\AppData\Local\Programs\Python\Python38-32\Scripts\;C:\Users\X550DP\AppData\Local\Programs\Python\Python38-32\;C:\Users\X550DP\AppData\Local\Microsoft\WindowsApps;C:\Users\X550DP\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\X550DP\AppData\Local\Yarn\bin;C:\Program Files\JetBrains\WebStorm 2020.1\bin;C:\Users\X550DP\AppData\Local\Programs\Fiddler;C:\Users\X550DP\AppData\Local\Microsoft\WindowsApps;C:\Users\X550DP\AppData\Roaming\npm;C:\Users\X550DP\go\bin
+
+Yarn version: 
+  1.22.0
+
+Node version: 
+  16.6.2
+
+Platform: 
+  win32 x64
+
+Trace: 
+  Error: https://registry.yarnpkg.com/date-fns/-/date-fns-2.23.0.tgz: ESOCKETTIMEDOUT
+      at ClientRequest.<anonymous> (C:\Program Files (x86)\Yarn\lib\cli.js:141354:19)
+      at Object.onceWrapper (node:events:513:28)
+      at ClientRequest.emit (node:events:394:28)
+      at TLSSocket.emitRequestTimeout (node:_http_client:761:9)
+      at Object.onceWrapper (node:events:513:28)
+      at TLSSocket.emit (node:events:406:35)
+      at TLSSocket.Socket._onTimeout (node:net:486:8)
+      at listOnTimeout (node:internal/timers:557:17)
+      at processTimers (node:internal/timers:500:7)
+
+npm manifest: 
+  {
+    "name": "digital-desa",
+    "version": "1.0.0",
+    "private": true,
+    "description": "Digital Desa",
+    "author": "Ahmad Aiman",
+    "keywords": [
+      "gatsby"
+    ],
+    "scripts": {
+      "develop": "gatsby develop",
+      "start": "gatsby develop",
+      "build": "gatsby build",
+      "serve": "gatsby serve",
+      "clean": "gatsby clean"
+    },
+    "dependencies": {
+      "@mdx-js/mdx": "^1.6.22",
+      "@mdx-js/react": "^1.6.22",
+      "gatsby": "^3.13.0",
+      "gatsby-plugin-google-analytics": "^3.13.0",
+      "gatsby-plugin-image": "^1.13.0",
+      "gatsby-plugin-manifest": "^3.13.0",
+      "gatsby-plugin-mdx": "^2.13.0",
+      "gatsby-plugin-react-helmet": "^4.13.0",
+      "gatsby-plugin-sharp": "^3.13.0",
+      "gatsby-plugin-sitemap": "^4.9.0",
+      "gatsby-source-filesystem": "^3.13.0",
+      "gatsby-transformer-sharp": "^3.13.0",
+      "react": "^17.0.1",
+      "react-dom": "^17.0.1",
+      "react-helmet": "^6.1.0"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
