@@ -1,5 +1,8 @@
 import { extendTheme } from "@chakra-ui/react"
 
+import Button from "./components/button"
+import Heading from "./components/heading"
+
 import colors from './colors'
 
 const theme = {
@@ -9,6 +12,10 @@ const theme = {
     monospace: "Space Mono, monospace"
   },
   colors,
+  components: {
+    Button,
+    Heading
+  }
 }
 
 export default extendTheme(theme)
