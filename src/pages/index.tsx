@@ -1,8 +1,9 @@
 import { Box, Heading } from "@chakra-ui/react"
 import * as React from "react"
+import MainLayout from "layouts/main"
 
 export default function IndexPage() {
-  return <Box>
-    <Heading>Hello, World!</Heading>
-  </Box>
+  return <MainLayout>
+    <Heading>Hello, World</Heading>
+  </MainLayout>
 }
