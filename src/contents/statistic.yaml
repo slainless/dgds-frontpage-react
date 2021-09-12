@@ -1,0 +1,11 @@
+- name: Desa Register
+  number: 355
+  icon: https://digitaldesa.id/templates/homepage/media/misc/icon-desa.svg
+
+- name: Kabupaten
+  number: 59
+  icon: https://digitaldesa.id/templates/homepage/media/misc/icon-kabupaten.svg
+
+- name: Pengguna Aplikasi
+  number: 5664
+  icon: https://digitaldesa.id/templates/homepage/media/misc/icon-users.svg

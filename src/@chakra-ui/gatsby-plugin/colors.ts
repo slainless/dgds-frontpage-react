@@ -1,4 +1,6 @@
-export default {
+import { Colors } from "@chakra-ui/theme"
+
+const colors: Colors = {
   brand: {
     "50": "#ECF8F2",
     "100": "#CAEDDA",
@@ -24,3 +26,5 @@ export default {
     "900": "#2C1507"
   }
 }
+
+export default colors

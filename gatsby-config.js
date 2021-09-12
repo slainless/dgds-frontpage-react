@@ -4,10 +4,7 @@ module.exports = {
     title: "Digital Desa",
   },
   plugins: [
-    {
-      resolve: "@chakra-ui/gatsby-plugin",
-      options: {},
-    },
+    "gatsby-transformer-yaml",
     "gatsby-plugin-root-import",
     "@chakra-ui/gatsby-plugin",
     {
@@ -45,6 +42,14 @@ module.exports = {
         path: "./src/pages/",
       },
       __key: "pages",
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "contents",
+        path: "./src/contents/",
+      },
+      __key: "contents",
     },
   ],
 };

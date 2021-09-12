@@ -1,11 +1,12 @@
-import { extendTheme } from "@chakra-ui/react"
+import { ChakraTheme, extendTheme } from "@chakra-ui/react"
 
 import Button from "./components/button"
 import Heading from "./components/heading"
 
 import colors from './colors'
+import textStyles from "./text-style"
 
-const theme = {
+const theme: Partial<ChakraTheme> = {
   fonts: {
     heading: "Poppins, sans-serif",
     body: "Poppins, sans-serif",
@@ -15,7 +16,8 @@ const theme = {
   components: {
     Button,
     Heading
-  }
+  },
+  textStyles
 }
 
 export default extendTheme(theme)

@@ -24,40 +24,40 @@ export default function Header() {
   }, [isDense])
 
   return (
-  <Flex as="header" bgColor="brand.600" shadow="lg"
-    data-transparent={isTransparent ? true : null}
-    data-dense={isDense ? true : null}
-    position="fixed" width="full" zIndex="docked"
-    sx={{
-      '&[data-transparent]': {
-        bgColor: 'blackAlpha.400',
-        // bgColor: 'whiteAlpha.00',
-        shadow: 'md',
-        backdropFilter: 'auto',
-        backdropBlur: 'lg'
-      },
-      // '&[data-transparent] #digides-logo': {
-      //   bgColor: 'blackAlpha.300',
-      //   px: 5
-      // },
-      // '&::before': {
-      //   content: '""',
-      //   position: 'fixed',
-      //   zIndex: 'hide',
-      //   width: '100%',
-      //   height: '100%',
-      //   bgColor: 'brand.700',
-      //   opacity: 0.2,
-      //   mx: 'calc(var(--page-px) * -1)'
-      // }
-    }}
-  >
-    <Flex as={Link} href="/" width={36} sx={{ '[data-dense] > &': { width: 32 } }}>
-      <Image id="digides-logo" src="https://digitaldesa.id/templates/homepage/media/logo/neo-logo-digides.svg"
-      width="100%"/>
+    <Flex as="header" bgColor="brand.600" shadow="lg"
+      data-transparent={isTransparent ? true : null}
+      data-dense={isDense ? true : null}
+      position="fixed" width="full" zIndex="docked"
+      sx={{
+        '&[data-transparent]': {
+          bgColor: 'blackAlpha.400',
+          // bgColor: 'whiteAlpha.00',
+          shadow: 'md',
+          backdropFilter: 'auto',
+          backdropBlur: 'lg'
+        },
+        // '&[data-transparent] #digides-logo': {
+        //   bgColor: 'blackAlpha.300',
+        //   px: 5
+        // },
+        // '&::before': {
+        //   content: '""',
+        //   position: 'fixed',
+        //   zIndex: 'hide',
+        //   width: '100%',
+        //   height: '100%',
+        //   bgColor: 'brand.700',
+        //   opacity: 0.2,
+        //   mx: 'calc(var(--page-px) * -1)'
+        // }
+      }}
+    >
+      <Flex as={Link} href="/" width={36} sx={{ '[data-dense] > &': { width: 32 } }}>
+        <Image id="digides-logo" src="https://digitaldesa.id/templates/homepage/media/logo/neo-logo-digides.svg"
+        width="100%"/>
+      </Flex>
+      <Spacer/>
+      <NavBar/>
     </Flex>
-    <Spacer/>
-    <NavBar/>
-  </Flex>
   )
 }
