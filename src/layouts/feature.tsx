@@ -22,11 +22,16 @@ function Processor({ children }: { children: ReactNode }) {
           case 'double-section':
             const children = React.Children.toArray(item.props.children)
             const imgParent = children.find(child => {
+              if(isElement('img', child))
+                return true
+
               if(isElement('p', child))
                 if(isElement('img', child.props.children))
                   return true
+
               return false
             }) as ReactElement | null
+
             const contents = children.filter(child => child !== imgParent)
             return (
               <DoubleSection pt={12} pb={6}
@@ -37,7 +42,7 @@ function Processor({ children }: { children: ReactNode }) {
                 }
                 rightColumn={
                   <Flex position="relative" justifyContent="center" alignItems="center">
-                    { imgParent?.props?.children }
+                    { imgParent?.props?.originalType === 'img' ? imgParent : imgParent?.props?.children }
                   </Flex>
                 }
                 sx={{
@@ -51,7 +56,7 @@ function Processor({ children }: { children: ReactNode }) {
           case 'h1':
             return (
               <Heading 
-                as="h1" bgColor="black" color="white" px={7} py={2} rounded="full" {...props}
+                as="h1" bgColor="black" color="white" px={7} py={2} rounded="lg" {...props}
                 mb={5}
               />
             )

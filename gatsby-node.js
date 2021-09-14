@@ -36,7 +36,7 @@ exports.onCreatePage = async({ actions, page }) => {
   const newPage = _.cloneDeep(page)
 
   if(isInFolder(page.component, 'src/contents/features')) {
-    newPage.path = `/fitur${newPage.path}`
+    newPage.path = `/fitur/${path.basename(newPage.path, '.mdx')}`
     createPage(newPage)
     deletePage(page)
   }
