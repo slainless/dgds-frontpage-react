@@ -31,10 +31,10 @@ module.exports = {
     {
       resolve: "gatsby-source-filesystem",
       options: {
-        name: "data",
-        path: "./src/contents/data",
+        name: "landing-data",
+        path: "./src/contents/landing-data",
       },
-      __key: "data",
+      __key: "landing-data",
     },
     {
       resolve: "gatsby-plugin-page-creator",
