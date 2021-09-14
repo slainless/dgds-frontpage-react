@@ -12,7 +12,7 @@ import {
   PopoverCloseButton,
 } from "@chakra-ui/react"
 import type { FocusableElement } from "@chakra-ui/utils";
-import { ArrowButton } from "Components/Button";
+import { ArrowButton } from "components/button";
 import { SectionWithH2 } from "components/layouts/section";
 import { PhotoCard } from "components/card";
 

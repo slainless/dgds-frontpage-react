@@ -4,6 +4,44 @@ module.exports = {
     title: "Digital Desa",
   },
   plugins: [
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "images",
+        path: "./src/images/",
+      },
+      __key: "images",
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "pages",
+        path: "./src/pages/",
+      },
+      __key: "pages",
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "features",
+        path: "./src/contents/features",
+      },
+      __key: "features",
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "data",
+        path: "./src/contents/data",
+      },
+      __key: "data",
+    },
+    {
+      resolve: "gatsby-plugin-page-creator",
+      options: {
+        path: "./src/contents/features",
+      },
+    },
     "gatsby-transformer-yaml",
     "gatsby-plugin-root-import",
     "@chakra-ui/gatsby-plugin",
@@ -24,32 +62,16 @@ module.exports = {
         icon: "src/images/icon.png",
       },
     },
-    "gatsby-plugin-mdx",
+    {
+      resolve: "gatsby-plugin-mdx",
+      options: {
+        defaultLayouts: {
+          features: require.resolve("./src/layouts/feature.tsx"),
+          default: require.resolve("./src/layouts/feature.tsx")
+        },
+      },
+    },
     "gatsby-plugin-sharp",
-    "gatsby-transformer-sharp",
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        name: "images",
-        path: "./src/images/",
-      },
-      __key: "images",
-    },
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        name: "pages",
-        path: "./src/pages/",
-      },
-      __key: "pages",
-    },
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        name: "contents",
-        path: "./src/contents/",
-      },
-      __key: "contents",
-    },
+    "gatsby-transformer-sharp"
   ],
 };

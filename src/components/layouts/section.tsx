@@ -17,17 +17,15 @@ export function SectionWithH2(props: BoxProps & { title: string }) {
 
 export function DoubleSection(props: Omit<GridProps, 'children'> & {
   leftColumn?: React.ReactNode,
-  rightColumn?: React.ReactNode,
-  swap?: boolean
+  rightColumn?: React.ReactNode
 }) {
-  const swap = _.defaultTo(props.swap, false)
   return (
     <Grid 
-      templateColumns="repeat(2, 1fr)" gap={12} py={16} 
+      templateColumns="repeat(2, 1fr)" gap={12} py={16} as="section"
       {..._.omit(props, ['children', 'leftColumn', 'rightColumn', 'swap'])}
     >
-      <GridItem as={Flex} gridColumn={swap ? 2 : 1} gridRow={1}>{props.leftColumn}</GridItem>
-      <GridItem as={Flex} gridColumn={swap ? 1 : 2} gridRow={1}>{props.rightColumn}</GridItem>
+      <GridItem as={Flex} gridRow={1}>{props.leftColumn}</GridItem>
+      <GridItem as={Flex} gridRow={1}>{props.rightColumn}</GridItem>
     </Grid>
   )
 }

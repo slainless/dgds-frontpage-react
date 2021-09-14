@@ -42,7 +42,7 @@ const Button: StyleConfig = {
       borderColor: "black",
       _hover: {
         ...brandStyles._hover as CSSObject,
-        borderColor: "brand.500"
+        borderColor: "brand.800"
       }
     },
     'alt': altStyles,
