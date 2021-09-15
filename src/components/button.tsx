@@ -1,4 +1,4 @@
-import { Button, ButtonProps, Box, LinkProps, IconButton, IconButtonProps, CSSObject } from "@chakra-ui/react";
+import { Button, ButtonProps, Box, LinkProps, IconButton, IconButtonProps, CSSObject, Link } from "@chakra-ui/react";
 import { RiArrowLeftLine, RiArrowRightLine, RiFacebookLine, RiInstagramLine, RiTwitterLine, RiWhatsappLine, RiPlayCircleLine } from 'react-icons/ri'
 import React from "react";
 import _ from "lodash";
@@ -95,4 +95,47 @@ export function PlayButton(props: IconButtonProps) {
   // }}
   // {...props}>
   // </IconButton>
+}
+
+export function NavBarLink(props: Parameters<typeof Link>[0] & { match: boolean }) {
+  const { match, href, _hover, _activeLink, sx, ...rest } = props
+  return (
+    <Link px={7} py={4}
+      color="white" fontWeight="medium"
+      borderBottom="3px solid" borderBottomColor="transparent"
+      _hover={{ 
+        color: "brand.100", 
+        borderBottomColor: "blackAlpha.500", 
+        bgColor: 'blackAlpha.200',
+        ..._hover
+      }}
+      _activeLink={{ 
+        color: 'white',
+        bgColor: 'blackAlpha.300',
+        borderBottomColor: 'blackAlpha.500',
+        fontWeight: 'bold',
+        ..._activeLink
+      }}
+      _active={{
+        bgColor: 'blackAlpha.400',
+        borderBottomColor: 'blackAlpha.500'
+      }}
+      sx={{
+        'header[data-transparent] &:hover': {
+          color: 'brand.100', borderBottomColor: 'brand.100'
+        },
+        'header[data-transparent] &[data-active]': {
+          color: 'brand.100', borderBottomColor: 'brand.100'
+        },
+        'header[data-transparent] &[aria-current=page]': {
+          color: 'alt.300', borderBottomColor: "alt.300", 
+        },
+        'header[data-dense] &': { py: 3 },
+        ...sx
+      }}
+      aria-current={match ? 'page' : false}
+      href={match ? null : href}
+      {...rest}
+    />
+  )
 }

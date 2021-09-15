@@ -7,30 +7,6 @@ const isInFolder = (filePath, folderPath) => {
   return path.relative(fullFolderPath, filePath) === path.basename(filePath)
 }
 
-// exports.onCreateNode = ({ node, actions, getNode }) => {
-//   const { createNodeField } = actions
-
-//   if (node.internal.type === "Mdx") {
-//     const value = createFilePath({ node, getNode })
-//     const filePath = node.fileAbsolutePath
-//     const baseName = path.basename(filePath, '.mdx')
-
-//     if(isInFolder(filePath, 'src/contents/features')) {
-//       createNodeField({
-//         name: "slug",
-//         node,
-//         value: `/fitur/${baseName}`,
-//       })
-
-//       createNodeField({
-//         name: "group",
-//         node,
-//         value: "features"
-//       })
-//     }
-//   }
-// }
-
 exports.onCreatePage = async({ actions, page }) => {
   const { deletePage, createPage } = actions
   const newPage = _.cloneDeep(page)
