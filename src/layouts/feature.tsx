@@ -2,12 +2,13 @@ import { Flex, Heading, ListItem, UnorderedList, VStack } from "@chakra-ui/react
 import { MDXProvider } from "@mdx-js/react"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import { DoubleSection } from "components/layouts/section"
-import { isElement } from "functions/MdxTraverser"
+import { isElement } from "functions/mdx-traverser"
 import _ from "lodash"
 import React, { ReactElement } from "react"
 import { ReactNode } from "react"
 import { Replacer } from "react-element-replace"
 import MainLayout from "./main"
+import { AllFeatureDisplay } from "components/pages/features/display-features"
 
 function Processor({ children }: { children: ReactNode }) {
   return (
@@ -91,6 +92,7 @@ export default function Component(props) {
     <MainLayout>
     {/* TODO: different wrapper for different MDX folder */}
       <Processor children={children}/>
+      <AllFeatureDisplay/>
     </MainLayout>
   )
 }
