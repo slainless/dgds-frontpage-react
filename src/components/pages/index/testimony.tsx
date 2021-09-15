@@ -44,7 +44,7 @@ export default function TestimonySection({ data }: { data: Data[] }) {
         data.map?.(({ name, title, media, content }, index) => (
           <Popover 
             isLazy onClose={() => setShowIndex(-1)} isOpen={index === showIndex}
-            placement="right"
+            placement="right" key={index}
           >
             <PopoverTrigger>
               <Flex 
