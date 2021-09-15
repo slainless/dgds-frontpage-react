@@ -37,11 +37,25 @@ module.exports = {
       __key: "landing-data",
     },
     {
-      resolve: "gatsby-plugin-page-creator",
+      resolve: "gatsby-source-filesystem",
       options: {
-        path: "./src/contents/features",
+        name: "posts",
+        path: "./src/contents/posts",
       },
+      __key: "posts",
     },
+    // {
+    //   resolve: "gatsby-plugin-page-creator",
+    //   options: {
+    //     path: "./src/contents/features",
+    //   },
+    // },
+    // {
+    //   resolve: "gatsby-plugin-page-creator",
+    //   options: {
+    //     path: "./src/contents/posts",
+    //   },
+    // },
     "gatsby-transformer-yaml",
     "gatsby-plugin-root-import",
     "@chakra-ui/gatsby-plugin",
@@ -65,6 +79,7 @@ module.exports = {
     {
       resolve: "gatsby-plugin-mdx",
       options: {
+        extensions: [`.mdx`, `.md`],
         defaultLayouts: {
           features: require.resolve("./src/layouts/feature.tsx"),
           default: require.resolve("./src/layouts/feature.tsx")

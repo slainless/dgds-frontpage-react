@@ -1,0 +1,10 @@
+{
+  "frontMatter.content.pageFolders": [
+    {
+      "title": "posts",
+      "path": "[[workspace]]/src/contents/posts"
+    }
+  ],
+  "frontMatter.content.fmHighlight": false,
+  "frontMatter.templates.prefix": ""
+}
