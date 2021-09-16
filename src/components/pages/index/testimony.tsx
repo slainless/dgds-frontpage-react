@@ -24,7 +24,6 @@ type Data = {
 }
 
 export default function TestimonySection({ data }: { data: Data[] }) {
-  const basicRem        = +window.getComputedStyle(document.documentElement).fontSize.replace('px', '')
   const [showIndex, setShowIndex] = useState<number>(-1)
   const initialRef                = useRef<(HTMLDivElement | null)[]>([])
 

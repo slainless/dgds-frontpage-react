@@ -14,15 +14,16 @@ export default function Header() {
     setTransparentable(
       ['/', '/kontak', '/kontak/'].includes(document.URL.replace(document.location.origin, ''))
     )
+    
+    window.addEventListener('scroll', () => {
+      if(window.scrollY >= denseMinY && isDense === false)
+        setDense(true)
+
+      else if(window.scrollY < denseMinY && isDense)
+        setDense(false)
+    })
   }, [])
 
-  window.addEventListener('scroll', () => {
-    if(window.scrollY >= denseMinY && isDense === false)
-      setDense(true)
-
-    else if(window.scrollY < denseMinY && isDense)
-      setDense(false)
-  })
 
   useEffect(() => {
     console.log(isDense)
