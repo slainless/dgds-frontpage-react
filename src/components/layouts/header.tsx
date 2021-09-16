@@ -6,8 +6,15 @@ import NavBar from "./navbar";
 export default function Header() {
   const denseMinY = 175
   const [isTransparentable, setTransparentable] = useState(false)
-  const [isDense, setDense] = useState(window.scrollY >= denseMinY)
+  const [isDense, setDense] = useState(false)
   const [isTransparent, setTransparent] = useState(false)
+
+  useEffect(() => {
+    setDense(window.scrollY >= denseMinY)
+    setTransparentable(
+      ['/', '/kontak', '/kontak/'].includes(document.URL.replace(document.location.origin, ''))
+    )
+  }, [])
 
   window.addEventListener('scroll', () => {
     if(window.scrollY >= denseMinY && isDense === false)
@@ -16,12 +23,6 @@ export default function Header() {
     else if(window.scrollY < denseMinY && isDense)
       setDense(false)
   })
-
-  useEffect(() => {
-    setTransparentable(
-      ['/', '/kontak', '/kontak/'].includes(document.URL.replace(document.location.origin, ''))
-    )
-  }, [])
 
   useEffect(() => {
     console.log(isDense)
