@@ -10,11 +10,6 @@ export default function Header() {
   const [isTransparent, setTransparent] = useState(false)
 
   useEffect(() => {
-    setDense(window.scrollY >= denseMinY)
-    setTransparentable(
-      ['/', '/kontak', '/kontak/'].includes(document.URL.replace(document.location.origin, ''))
-    )
-    
     window.addEventListener('scroll', () => {
       if(window.scrollY >= denseMinY && isDense === false)
         setDense(true)
@@ -22,13 +17,20 @@ export default function Header() {
       else if(window.scrollY < denseMinY && isDense)
         setDense(false)
     })
-  }, [])
+  })
 
+  useEffect(() => {
+    setTransparentable(
+      ['/', '/kontak', '/kontak/'].includes(document.URL.replace(document.location.origin, ''))
+    )
+    setDense(window.scrollY >= denseMinY)
+  }, [])
 
   useEffect(() => {
     console.log(isDense)
     if(isDense === false && isTransparentable) setTransparent(true)
     else setTransparent(false)
+
   }, [isTransparentable, isDense])
 
   return (
@@ -63,8 +65,10 @@ export default function Header() {
       }}
     >
       <Flex as={Link} href="/" width={36} sx={{ '[data-dense] > &': { width: 32 } }}>
-        <Image id="digides-logo" src="https://digitaldesa.id/templates/homepage/media/logo/neo-logo-digides.svg"
-        width="100%"/>
+        <Image 
+          id="digides-logo" src="https://digitaldesa.id/templates/homepage/media/logo/neo-logo-digides.svg"
+          width="100%"
+        />
       </Flex>
       <Spacer/>
       <NavBar/>

@@ -22,13 +22,14 @@ export default function Contact() {
         bgImage="https://digitaldesa.id/templates/homepage/media/bg/bg-landing5.jpg" 
         bgSize="cover" mx="calc(var(--page-px) * -1)" 
         height="calc(var(--chakra-space-36) + 100vh)" pb={36} mb={-36}
+        fontFamily="heading"
         alignItems="center" justifyContent="center"
       >
         <Grid 
           p={10} rounded="xl" templateColumns="repeat(3, auto)"
           columnGap={10} color="white" bgColor="blackAlpha.600"
           sx={{
-            '& > :not(:first-child) h3::before': {
+            '& > :not(:first-of-type) h3::before': {
               content: '"atau"',
               fontSize: 'xs',
               px: 2, rounded: 'full',
