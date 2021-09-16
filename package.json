@@ -40,6 +40,7 @@
     "gatsby-transformer-yaml-full": "^0.4.4",
     "gatsby-transformer-yaml-plus": "^0.2.2",
     "gatsby-yaml-full-markdown": "^0.4.3",
+    "luxon": "^2.0.2",
     "marked": "^3.0.3",
     "preact": "^10.5.14",
     "preact-render-to-string": "^5.1.19",
@@ -50,6 +51,7 @@
     "react-icons": "^4.2.0"
   },
   "devDependencies": {
+    "@types/luxon": "^2.0.4",
     "@types/marked": "^3.0.0",
     "@types/mdx-js__react": "^1.5.4",
     "@types/react-helmet": "^6.1.2",

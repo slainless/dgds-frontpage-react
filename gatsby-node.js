@@ -1,5 +1,6 @@
 const { createFilePath } = require("gatsby-source-filesystem")
 const path = require('path')
+const fs = require('fs')
 const _ = require('lodash')
 
 const isInFolder = (filePath, folderPath) => {
@@ -13,7 +14,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   if (node.internal.type === "Mdx") {
     const value = createFilePath({ node, getNode })
     const filePath = node.fileAbsolutePath
-    const baseName = path.basename(filePath, '.mdx')
+    const baseName = path.basename(filePath).replace(/\.mdx?$/, '')
 
     if(isInFolder(filePath, 'src/contents/features')) {
       createNodeField({
@@ -39,7 +40,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       createNodeField({
         name: "group",
         node,
-        value: "articles"
+        value: "posts"
       })
     }
   }
@@ -66,6 +67,16 @@ exports.createPages = async({ graphql, actions }) => {
               summary
               title
               draft
+              title
+              tags
+              slug
+              date
+              lastmod
+              headerimage {
+                src
+                width
+              }
+              keywords
             }
           }
         }
@@ -73,8 +84,9 @@ exports.createPages = async({ graphql, actions }) => {
     }
   `)
 
-  queryResult.data.allMdx.edges.forEach(({ node }, index) => {
-    if(node.fields.group === 'articles')
+  const nodes = queryResult.data.allMdx.edges
+  nodes.forEach(({ node }, index) => {
+    if(node.fields.group === 'posts')
       if(node.frontmatter.draft) return
 
     createPage({
@@ -83,6 +95,12 @@ exports.createPages = async({ graphql, actions }) => {
       context: { frontmatter: node.frontmatter }
     })
   })
+
+  fs.writeFile(
+    path.join(__dirname, 'public', 'all-mdx.json'), 
+    JSON.stringify(nodes.map(i => i.node)),
+    () => { console.log('all-mdx.json populated...')}
+  )
 }
 
 // exports.onCreatePage = async({ actions, page }) => {

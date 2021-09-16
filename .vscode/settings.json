@@ -6,5 +6,15 @@
     }
   ],
   "frontMatter.content.fmHighlight": false,
-  "frontMatter.templates.prefix": ""
+  "frontMatter.templates.prefix": "",
+  "[markdown]": {
+  },
+  "frontMatter.taxonomy.tags": [
+    "Desa",
+    "Desa Digital",
+    "Digitalisasi",
+    "Digitalisasi Desa",
+    "Go Digital",
+    "Mitra Digides"
+  ]
 }

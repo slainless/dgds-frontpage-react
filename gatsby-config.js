@@ -82,6 +82,7 @@ module.exports = {
         extensions: [`.mdx`, `.md`],
         defaultLayouts: {
           features: require.resolve("./src/layouts/feature.tsx"),
+          posts: require.resolve("./src/layouts/post.tsx"),
           default: require.resolve("./src/layouts/feature.tsx")
         },
       },
