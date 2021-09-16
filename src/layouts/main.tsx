@@ -15,7 +15,7 @@ export default function MainLayout(props: Parameters<typeof Box>[0]) {
     >
       <DefaultHead/>
       <Header/>
-      <Box as="main" {...props}/>
+      <Box as="main" minHeight="100vh" {...props}/>
       <Footer/>
     </Box>
   )

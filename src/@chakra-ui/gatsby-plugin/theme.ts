@@ -9,7 +9,7 @@ import textStyles from "./text-style"
 const theme: Partial<ChakraTheme> = {
   fonts: {
     heading: "Poppins, sans-serif",
-    body: "Poppins, sans-serif",
+    body: "Inter, sans-serif",
     monospace: "Space Mono, monospace"
   },
   colors,

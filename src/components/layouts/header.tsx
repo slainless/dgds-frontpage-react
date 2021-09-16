@@ -29,6 +29,7 @@ export default function Header() {
       data-transparent={isTransparent ? true : null}
       data-dense={isDense ? true : null}
       position="fixed" width="full" zIndex="docked"
+      fontFamily="heading"
       sx={{
         '&[data-transparent]': {
           bgColor: 'blackAlpha.400',

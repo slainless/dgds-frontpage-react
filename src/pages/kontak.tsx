@@ -4,11 +4,15 @@ import React from "react"
 import { RiMailSendLine, RiPhoneLine, RiWhatsappLine } from "react-icons/ri"
 
 function Link(props: { children: string }) {
-  return <Button variant="brand-outlined" 
-  border="none" py={1} bgColor="blackAlpha.700" color="white" as="a" href="#footer-alamat"
-  height="auto" rounded="full">
-    {props.children}
-  </Button>
+  return (
+    <Button 
+      variant="brand-outlined" 
+      border="none" py={1} bgColor="blackAlpha.700" color="white" as="a" href="#footer-alamat"
+      height="auto" rounded="full"
+    >
+      {props.children}
+    </Button>
+  )
 }
 
 export default function Contact() {

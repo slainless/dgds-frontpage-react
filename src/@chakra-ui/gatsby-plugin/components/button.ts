@@ -2,6 +2,7 @@ import type { CSSObject } from "@chakra-ui/styled-system";
 import type { StyleConfig } from "@chakra-ui/theme-tools";
 
 const altStyles: CSSObject = {
+  fontFamily: "heading",
   bgColor: "alt.400",
   color: "white",
   _hover: {
@@ -14,6 +15,7 @@ const altStyles: CSSObject = {
 }
 
 const brandStyles: CSSObject = {
+  fontFamily: "heading",
   bgColor: 'brand.600', 
   color: 'white',
   _hover: {
@@ -48,6 +50,7 @@ const Button: StyleConfig = {
     'alt': altStyles,
     'alt-rounded': { ...altStyles, ...roundedStyles },
     'blended': {
+      fontFamily: "heading",
       fontWeight: 'medium',
       bgColor: 'transparent', 
       color: 'black',

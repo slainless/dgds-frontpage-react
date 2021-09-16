@@ -86,7 +86,7 @@ function Processor({ children }: { children: ReactNode }) {
   )
 }
 
-export default function Component(props) {
+export default function FeatureLayout(props) {
   const { children } = props
   return (
     <MainLayout>

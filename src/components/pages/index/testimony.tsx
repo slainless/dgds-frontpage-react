@@ -77,8 +77,8 @@ export default function TestimonySection({ data }: { data: Data[] }) {
                 <PopoverHeader as={Flex} justifyContent="space-between">
                   <ArrowButton aria-label="left-testimony" direction='left' onClick={changeShowIndex(index-1)}/>
                   <VStack spacing={0}>
-                    <Text fontWeight="bold" fontSize={20}>{title}</Text>
-                    <Text fontWeight="semibold" fontStyle="oblique">{name}</Text>
+                    <Text fontFamily="heading" fontWeight="bold" fontSize={20}>{title}</Text>
+                    <Text fontFamily="heading" fontWeight="semibold" fontStyle="oblique">{name}</Text>
                   </VStack>
                   <ArrowButton aria-label="right-testimony" direction='right' onClick={changeShowIndex(index+1)}/>
                 </PopoverHeader>
