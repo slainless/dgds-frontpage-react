@@ -5,7 +5,7 @@ import NavBar from "./navbar";
 
 export default function Header() {
   const denseMinY = 175
-  const isShouldTransparent = ['/', '/kontak', '/kontak/'].includes(document.URL.replace(document.location.origin, ''))
+  const [isTransparentable, setTransparentable] = useState(false)
   const [isDense, setDense] = useState(window.scrollY >= denseMinY)
   const [isTransparent, setTransparent] = useState(false)
 
@@ -18,10 +18,16 @@ export default function Header() {
   })
 
   useEffect(() => {
+    setTransparentable(
+      ['/', '/kontak', '/kontak/'].includes(document.URL.replace(document.location.origin, ''))
+    )
+  }, [])
+
+  useEffect(() => {
     console.log(isDense)
-    if(isDense === false && isShouldTransparent) setTransparent(true)
+    if(isDense === false && isTransparentable) setTransparent(true)
     else setTransparent(false)
-  }, [isDense])
+  }, [isTransparentable, isDense])
 
   return (
     <Flex 
