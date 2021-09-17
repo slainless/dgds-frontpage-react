@@ -10,71 +10,7 @@ import MainLayout from "./main"
 import { DateTime } from 'luxon'
 import { FacebookButton, TwitterButton, WhatsappButton } from "components/button"
 import { RiCalendar2Fill } from 'react-icons/ri'
-
-function Processor({ children }: { children: ReactNode }) {
-  return (
-    <Replacer
-      match={isElement([
-        'double-section', 'h1', 'h2', 'h3', 'ul', 'li', 'ol', 'p',
-        'thead', 'tbody', 'th', 'td', 'tr', 'table'
-      ])}
-      replace={(item: ReactElement) => {
-        const tagName = item.props.originalType
-        const props   = _.omit(item.props, ['parentName', 'originalType', 'mdxType'])
-
-        switch(tagName) {
-
-          case 'h2':
-            return <Heading as="h2" color="brand.700" textAlign="center" size="lg" {...props}/>
-          case 'h3':
-            return <Heading as="h3" mb={5} mt={10} size="md" {...props}/>
-          case 'ul':
-            return (
-              <UnorderedList fontSize="lg" 
-                sx={{ 
-                  '& li': { ml: 5 } 
-                }} {...props}
-              />
-            )
-          case 'ol':
-            return (
-              <OrderedList fontSize="lg" 
-                sx={{ 
-                  '& li': { ml: 5 } 
-                }} {...props}
-              />
-            )
-          case 'p':
-            return (
-              <Text 
-                fontSize="lg" {...props}
-                sx={{
-                  '& + p': {
-                    mt: 5
-                  }
-                }}
-              />
-            )
-          default:
-            const ComponentUsed = {
-              a: Link,
-              li: ListItem,
-              table: Table,
-              tbody: Tbody,
-              thead: Thead,
-              th: Th,
-              tr: Tr,
-              td: Td
-            }[tagName]
-            if(ComponentUsed == null) return item
-            return <ComponentUsed {...props}/>
-        }
-      }}
-    >
-      { children }
-    </Replacer>
-  )
-}
+import { GeneralProcessor } from "functions/mdx-processor"
 
 export default function PostLayout(props) {
   const { children } = props
@@ -97,7 +33,7 @@ export default function PostLayout(props) {
           <Image {...frontmatter.headerimage} shadow="md" rounded="lg"/>
         </Flex>
         
-        <Processor children={children}/>
+        <GeneralProcessor children={children}/>
         <VStack 
           mt={8} pt={8} alignItems="flex-start" spacing={5} borderTop="2px solid" 
           borderTopColor="blackAlpha.200"

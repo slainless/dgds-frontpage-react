@@ -51,9 +51,21 @@ export default function Footer(props: BoxProps) {
           </GridItem>
           <GridItem as={VStack} colSpan={2} justifyContent="center" alignItems="center">
             <UnorderedList spacing={1}>
-              <ListItem><Button variant="blended" height={7}>Kebijakan Privasi</Button></ListItem>
-              <ListItem><Button variant="blended" height={7}>Pusat Bantuan</Button></ListItem>
-              <ListItem><Button variant="blended" height={7}>Permintaan Harga</Button></ListItem>
+              <ListItem>
+                <Button as="a" variant="blended" height={7} href="/privacy-policy">
+                  Kebijakan Privasi
+                </Button>
+              </ListItem>
+              <ListItem>
+                <Button as="a" variant="blended" height={7} href="/pusat-bantuan">
+                  Pusat Bantuan
+                </Button>
+              </ListItem>
+              <ListItem>
+                <Button as="a" variant="blended" height={7} href="http://bit.ly/hargadigides">
+                  Permintaan Harga
+                </Button>
+              </ListItem>
             </UnorderedList>
           </GridItem>
           <GridItem as={HStack} colSpan={2} justifyContent="center" alignItems="flex-start">

@@ -21,7 +21,8 @@ export default function Header() {
 
   useEffect(() => {
     setTransparentable(
-      ['/', '/kontak', '/kontak/'].includes(document.URL.replace(document.location.origin, ''))
+      ['/', '/kontak', '/kontak/', '/pusat-bantuan', '/pusat-bantuan/']
+        .includes(document.URL.replace(document.location.origin, ''))
     )
     setDense(window.scrollY >= denseMinY)
   }, [])

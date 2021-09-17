@@ -43,6 +43,14 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
         value: "posts"
       })
     }
+
+    if(isInFolder(filePath, 'src/contents/faq')) {
+      createNodeField({
+        name: "group",
+        node,
+        value: "faq"
+      })
+    }
   }
 }
 
@@ -86,8 +94,11 @@ exports.createPages = async({ graphql, actions }) => {
 
   const nodes = queryResult.data.allMdx.edges
   nodes.forEach(({ node }, index) => {
-    if(node.fields.group === 'posts')
-      if(node.frontmatter.draft) return
+    if(['posts', 'features'].includes(node.fields?.group) === false)
+      return
+      
+    if(node.fields?.group === 'posts')
+      if(node.frontmatter?.draft) return
 
     createPage({
       path: node.fields.path,

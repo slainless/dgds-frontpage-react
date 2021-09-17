@@ -31,31 +31,19 @@ module.exports = {
     {
       resolve: "gatsby-source-filesystem",
       options: {
-        name: "landing-data",
-        path: "./src/contents/landing-data",
-      },
-      __key: "landing-data",
-    },
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
         name: "posts",
         path: "./src/contents/posts",
       },
       __key: "posts",
     },
-    // {
-    //   resolve: "gatsby-plugin-page-creator",
-    //   options: {
-    //     path: "./src/contents/features",
-    //   },
-    // },
-    // {
-    //   resolve: "gatsby-plugin-page-creator",
-    //   options: {
-    //     path: "./src/contents/posts",
-    //   },
-    // },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "contents",
+        path: "./src/contents",
+      },
+      __key: "contents",
+    },
     "gatsby-transformer-yaml",
     "gatsby-plugin-root-import",
     "@chakra-ui/gatsby-plugin",
@@ -83,7 +71,7 @@ module.exports = {
         defaultLayouts: {
           features: require.resolve("./src/layouts/feature.tsx"),
           posts: require.resolve("./src/layouts/post.tsx"),
-          default: require.resolve("./src/layouts/feature.tsx")
+          default: require.resolve("./src/layouts/general-post.tsx")
         },
       },
     },

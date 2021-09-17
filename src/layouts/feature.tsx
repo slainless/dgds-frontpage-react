@@ -6,83 +6,63 @@ import { isElement } from "functions/mdx-traverser"
 import _ from "lodash"
 import React, { ReactElement } from "react"
 import { ReactNode } from "react"
-import { Replacer } from "react-element-replace"
 import MainLayout from "./main"
 import { AllFeatureDisplay } from "components/pages/features/display-features"
+import { GeneralProcessor } from "functions/mdx-processor"
 
 function Processor({ children }: { children: ReactNode }) {
   return (
-    <Replacer
-      match={isElement(['double-section', 'h1', 'h2', 'h3', 'ul', 'li'])}
-      replace={(item: ReactElement) => {
-        const tagName = item.props.originalType
-        const props   = _.omit(item.props, ['parentName', 'originalType', 'mdxType'])
+    <GeneralProcessor
+      extend={{
+        'double-section': (props) => {
+          const children = React.Children.toArray(props.children)
 
-        switch(tagName) {
+          const imgParent = children.find(child => {
+            console.log(child)
+            if(isElement('img', child))
+              return true
 
-          case 'double-section':
-            const children = React.Children.toArray(item.props.children)
-            const imgParent = children.find(child => {
-              if(isElement('img', child))
+            if(isElement('p', child))
+              if(isElement('img', child.props.children))
                 return true
 
-              if(isElement('p', child))
-                if(isElement('img', child.props.children))
-                  return true
+            return false
+          }) as ReactElement | null
 
-              return false
-            }) as ReactElement | null
-
-            const contents = children.filter(child => child !== imgParent)
-            return (
-              <DoubleSection pt={12} pb={6}
-                leftColumn={
-                  <VStack justifyContent="center" alignItems="flex-start">
-                    { contents }
-                  </VStack>
-                }
-                rightColumn={
-                  <Flex position="relative" justifyContent="center" alignItems="center">
-                    { imgParent?.props?.originalType === 'img' ? imgParent : imgParent?.props?.children }
-                  </Flex>
-                }
-                sx={{
-                  '&:first-of-type': { height: "100vh" },
-                  '&:nth-of-type(even) > :first-of-type': { gridColumn: 2 },
-                  '&:nth-of-type(even) > :last-of-type': { gridColumn: 1 },
-                }}
-              />
-            )
-
-          case 'h1':
-            return (
-              <Heading 
-                as="h1" bgColor="black" color="white" px={7} py={2} rounded="lg" {...props}
-                mb={5}
-              />
-            )
-          case 'h2':
-            return <Heading as="h2" color="brand.700" textAlign="center" size="xl" {...props}/>
-          case 'h3':
-            return <Heading as="h3" size="lg" {...props}/>
-          case 'ul':
-            return (
-              <UnorderedList 
-                sx={{ 
-                  '& li': { ml: 5 } 
-                }} {...props}
-              />
-            )
-          case 'li':
-            return <ListItem {...props}/>
-
-        }
-        
-        return item
+          const contents = children.filter(child => child !== imgParent)
+          console.log(imgParent, contents)
+          return (
+            <DoubleSection pt={12} pb={6}
+              leftColumn={
+                <VStack justifyContent="center" alignItems="flex-start">
+                  { contents }
+                </VStack>
+              }
+              rightColumn={
+                <Flex position="relative" justifyContent="center" alignItems="center">
+                  { imgParent?.props?.originalType === 'img' ? imgParent : imgParent?.props?.children }
+                </Flex>
+              }
+              sx={{
+                '&:first-of-type': { height: "100vh" },
+                '&:nth-of-type(even) > :first-of-type': { gridColumn: 2 },
+                '&:nth-of-type(even) > :last-of-type': { gridColumn: 1 },
+              }}
+            />
+          )
+        },
+        'h1': (props) => (
+          <Heading 
+            as="h1" bgColor="black" color="white" px={7} py={2} rounded="lg" {...props}
+            mb={5}
+          />
+        ),
+        'h2': (props) =>
+          <Heading as="h2" color="brand.700" textAlign="center" size="xl" {...props}/>,
+        'h3': (props) => <Heading as="h3" size="lg" {...props}/>
       }}
-    >
-      { children }
-    </Replacer>
+      children={children}
+    />
   )
 }
 
