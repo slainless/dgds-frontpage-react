@@ -3,11 +3,13 @@ import { Flex, HStack, Spacer } from "@chakra-ui/layout";
 import { Link, Image } from "@chakra-ui/react";
 import NavBar from "./navbar";
 
-export default function Header() {
+export default function Header({ enableTransparency = false }: { 
+  enableTransparency: boolean
+}) {
   const denseMinY = 175
-  const [isTransparentable, setTransparentable] = useState(false)
+  const isTransparentable = enableTransparency
   const [isDense, setDense] = useState(false)
-  const [isTransparent, setTransparent] = useState(false)
+  const [isTransparent, setTransparent] = useState(isTransparentable)
 
   useEffect(() => {
     window.addEventListener('scroll', () => {
@@ -20,19 +22,14 @@ export default function Header() {
   })
 
   useEffect(() => {
-    setTransparentable(
-      ['/', '/kontak', '/kontak/', '/pusat-bantuan', '/pusat-bantuan/']
-        .includes(document.URL.replace(document.location.origin, ''))
-    )
     setDense(window.scrollY >= denseMinY)
   }, [])
 
   useEffect(() => {
-    console.log(isDense)
     if(isDense === false && isTransparentable) setTransparent(true)
     else setTransparent(false)
 
-  }, [isTransparentable, isDense])
+  }, [isDense])
 
   return (
     <Flex 

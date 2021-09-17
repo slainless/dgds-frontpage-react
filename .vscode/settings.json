@@ -16,5 +16,6 @@
     "Digitalisasi Desa",
     "Go Digital",
     "Mitra Digides"
-  ]
+  ],
+  "liveServer.settings.root": "/public"
 }

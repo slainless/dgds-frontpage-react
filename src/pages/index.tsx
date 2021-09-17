@@ -74,7 +74,7 @@ export const query = graphql`
 
 export default function IndexPage({ data }) {
   return (
-    <MainLayout>
+    <MainLayout headerEnableTransparency={true}>
       <TitleSection/>
       <FeatureSection/>
       <SolutionSection data={data.solution?.nodes}/>

@@ -17,7 +17,7 @@ function Link(props: { children: string }) {
 
 export default function Contact() {
   return (
-    <MainLayout>
+    <MainLayout headerEnableTransparency={true}>
       <VStack 
         bgImage="https://digitaldesa.id/templates/homepage/media/bg/bg-landing5.jpg" 
         bgSize="cover" mx="calc(var(--page-px) * -1)" 

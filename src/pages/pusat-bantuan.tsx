@@ -95,7 +95,7 @@ export default function PrivacyPolicy({ children }) {
 
   const [showIndex, setShowIndex] = useState(0)
   return (
-    <MainLayout pb={24}>
+    <MainLayout pb={24} headerEnableTransparency={true}>
       <VStack 
         bgImage="https://digitaldesa.id/templates/homepage/media/bg/bg-landing5.jpg" 
         bgSize="cover" mx="calc(var(--page-px) * -1)" 
