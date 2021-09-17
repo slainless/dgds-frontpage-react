@@ -10,6 +10,7 @@ import { renderToString } from "preact-render-to-string";
 const VStackTemplate = (props: Omit<StackProps, 'children'> & {
   title: string, content: string
 }) => {
+  const content = marked(props.content)
   return(
     <VStack 
       key={props.title + '0'} spacing={2} px={8} py={4} rounded="lg" shadow="base"
@@ -20,7 +21,7 @@ const VStackTemplate = (props: Omit<StackProps, 'children'> & {
         children={props.title} as="h4" pb={2} size="md"
         bgColor="whiteAlpha.800" verticalAlign="middle" p={2} rounded="lg"
       />
-      <Text dangerouslySetInnerHTML={{ __html: marked(props.content) }} fontSize="md"/>
+      <Box dangerouslySetInnerHTML={{ __html: content }} fontSize="md"/>
     </VStack>
   )
 }

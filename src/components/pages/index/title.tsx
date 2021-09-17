@@ -1,4 +1,4 @@
-import { Heading, VStack, HStack, Button } from "@chakra-ui/react";
+import { Heading, VStack, HStack, Button, Tooltip } from "@chakra-ui/react";
 import React from "react";
 
 export default function TitleSection() {
@@ -20,8 +20,17 @@ export default function TitleSection() {
       Perluas Jangkauan, lakukan percepatan pelayanan dengan <em>Smart System</em> yang terintegrasi
     </Heading>
     <HStack pt='5' spacing={5}>
-      <Button variant="brand-rounded" boxShadow="outline">Request Demo</Button>
-      <Button variant="alt-rounded">Coba Gratis</Button>
+      <Tooltip label="Kamu bisa gunakan akun demo untuk mencoba fitur Digides selama beberapa hari.">
+        <Button 
+          as="a" variant="brand-rounded" boxShadow="outline" 
+          href="https://docs.google.com/forms/d/e/1FAIpQLSeDsH_9H1BDiOyNEP_SjsEj18Sy7i2JPKLaOFVNehzTbeIRLA/viewform?embedded=true"
+        >
+          Request Demo
+        </Button>
+      </Tooltip>
+      <Tooltip label="Kamu bisa 'Coba Gratis' seluruh fitur Digides selama 3 bulan.">
+        <Button variant="alt-rounded" as="a" href="https://digitaldesa.id/daftargratis">Coba Gratis</Button>
+      </Tooltip>
     </HStack>
   </VStack>
   )

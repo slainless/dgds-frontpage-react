@@ -10,7 +10,8 @@ export default function NavBar() {
     {
       component: NavBarLink,
       href: '/',
-      string: 'Beranda'
+      string: 'Beranda',
+      exact: true
     },
     {
       component: FeaturesMenu,
@@ -32,12 +33,17 @@ export default function NavBar() {
   useEffect(() => {
     const url = document.URL.replace(document.location.origin, '')
     const bestMatch = routes
-      .map((route, index) => ({ 
-        index,
-        match: (url.length - url.replace(route.href, '').length) / url.length * 100
-      }))
+      .map((route, index) => {
+        const matchPercentage = _.clamp((url.length - url.replace(route.href, '').length) / url.length * 100, 0, 100)
+        const isExact         = matchPercentage === 100
+
+        return { 
+          index,
+          match: route.exact ? (isExact ? 100 : 0) : matchPercentage
+        }
+      })
       .reduce((a, b) => (b.match >= a.match) ? b : a)
-    setBestMatch(bestMatch.index ?? 0)
+    setBestMatch(bestMatch.match > 0 ? bestMatch.index : -1)
   }, [])
 
   return (

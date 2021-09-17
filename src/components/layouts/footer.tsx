@@ -26,7 +26,12 @@ export default function Footer(props: BoxProps) {
         <Text fontSize="md" fontWeight="medium" pb={4}>
           Request Demo untuk pelajari lebih lanjut tentang Digides!
         </Text>
-        <Button variant="alt-rounded" shadow="lg">Request Demo</Button>
+        <Button 
+          variant="alt-rounded" shadow="lg"
+          href="https://docs.google.com/forms/d/e/1FAIpQLSeDsH_9H1BDiOyNEP_SjsEj18Sy7i2JPKLaOFVNehzTbeIRLA/viewform?embedded=true"
+        >
+          Request Demo
+        </Button>
       </VStack>
       <Grid templateRows="auto auto auto auto" templateColumns="repeat(6, 1fr)" rowGap={8} mb={16}>
         <>
