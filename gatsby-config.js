@@ -73,9 +73,41 @@ module.exports = {
           posts: require.resolve("./src/layouts/post.tsx"),
           default: require.resolve("./src/layouts/general-post.tsx")
         },
+        gatsbyRemarkPlugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 1200,
+              disableBgImage: true
+            },
+          },
+          {
+            resolve: `gatsby-remark-copy-linked-files`,
+            options: {
+              ignoreFileExtensions: [`png`, `jpg`, `jpeg`, `webp`, `tiff`, 'avif'],
+            }
+          },
+        ],
       },
     },
-    "gatsby-plugin-sharp",
-    "gatsby-transformer-sharp"
+    {
+      resolve: `gatsby-plugin-sharp`,
+      options: {
+        defaults: {
+          // formats: [`auto`, `webp`],
+          placeholder: `none`,
+          // quality: 50,
+          // breakpoints: [750, 1080, 1366, 1920],
+          // backgroundColor: `transparent`,
+          // tracedSVGOptions: {},
+          // blurredOptions: {},
+          // jpgOptions: {},
+          // pngOptions: {},
+          // webpOptions: {},
+          // avifOptions: {},
+        },
+      },
+    },
+    "gatsby-transformer-sharp",
   ],
 };
