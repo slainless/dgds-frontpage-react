@@ -1,4 +1,4 @@
-import { Heading, UnorderedList, OrderedList, Text, Image, Link, ListItem, Table, Tbody, Thead, Tr, Th, Td } from "@chakra-ui/react"
+import { Heading, UnorderedList, OrderedList, Text, Image, Link, ListItem, Box, Table, Tbody, Thead, Tr, Th, Td } from "@chakra-ui/react"
 import _ from "lodash"
 import React, { ReactElement, ReactNode } from "react"
 import { Replacer } from "react-element-replace"
@@ -60,6 +60,8 @@ export function GeneralProcessor({ children, extend }: {
     th: createDefault(Th),
     tr: createDefault(Tr),
     td: createDefault(Td),
+    span: createDefault(Box),
+    div: createDefault(Box),
     mod: (props, tagName, item) => {
       return (
         <Replacer 

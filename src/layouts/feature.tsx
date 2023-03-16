@@ -1,4 +1,4 @@
-import { Flex, Heading, ListItem, UnorderedList, VStack } from "@chakra-ui/react"
+import { Flex, Heading, ListItem, UnorderedList, VStack, Text } from "@chakra-ui/react"
 import { MDXProvider } from "@mdx-js/react"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import { DoubleSection } from "components/layouts/section"
@@ -14,23 +14,12 @@ function Processor({ children }: { children: ReactNode }) {
   return (
     <GeneralProcessor
       extend={{
-        'double-section': (props) => {
+        'feature-section': (props) => {
           const children = React.Children.toArray(props.children)
+          const [imgParent, contents] = _.partition(children, 
+            (child) => isElement('feature-image', child)
+          )
 
-          const imgParent = children.find(child => {
-            console.log(child)
-            if(isElement('img', child))
-              return true
-
-            if(isElement('p', child))
-              if(isElement('img', child.props.children))
-                return true
-
-            return false
-          }) as ReactElement | null
-
-          const contents = children.filter(child => child !== imgParent)
-          console.log(imgParent, contents)
           return (
             <DoubleSection pt={12} pb={6}
               leftColumn={
@@ -39,8 +28,12 @@ function Processor({ children }: { children: ReactNode }) {
                 </VStack>
               }
               rightColumn={
-                <Flex position="relative" justifyContent="center" alignItems="center">
-                  { imgParent?.props?.originalType === 'img' ? imgParent : imgParent?.props?.children }
+                <Flex position="relative" justifyContent="center" width="100%" alignItems="center" sx={{
+                  '& > *': {
+                    width: '100%'
+                  }
+                }}>
+                  { imgParent[0]?.props?.children }
                 </Flex>
               }
               sx={{
