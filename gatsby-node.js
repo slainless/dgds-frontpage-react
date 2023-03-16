@@ -54,7 +54,30 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   }
 }
 
-exports.createPages = async({ graphql, actions }) => {
+exports.createResolvers = ({ createResolvers, intermediateSchema }) => {
+  const fileResolver = (p) => ({
+    type: `File`,
+    async resolve(source, args, context, info) {
+      const relativePath = _.property(p)(source)
+      return await context.nodeModel.findOne({
+        type: `File`,
+        query: { filter: { relativePath: { eq: relativePath } } }
+      })
+    }
+  })
+
+  createResolvers({
+    ComparisonYaml: { iconFile: fileResolver('icon') },
+    SolutionYaml: { iconFile: fileResolver('icon'), mediaFile: fileResolver('media.src') },
+    SponsorYaml: { iconFile: fileResolver('icon') },
+    StatisticYaml: { iconFile: fileResolver('icon') },
+    TestimonyYaml: { mediaFile: fileResolver('media.src') },
+    UserYaml: { iconFile: fileResolver('icon') },
+    MdxFrontmatter: { iconFile: fileResolver('icon.src') },
+  })
+}
+
+exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
 
   const queryResult = await graphql(`
