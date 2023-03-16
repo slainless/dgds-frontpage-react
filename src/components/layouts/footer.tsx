@@ -27,7 +27,7 @@ export default function Footer(props: BoxProps) {
           Request Demo untuk pelajari lebih lanjut tentang Digides!
         </Text>
         <Button 
-          variant="alt-rounded" shadow="lg"
+          variant="alt-rounded" shadow="lg" as="a"
           href="https://docs.google.com/forms/d/e/1FAIpQLSeDsH_9H1BDiOyNEP_SjsEj18Sy7i2JPKLaOFVNehzTbeIRLA/viewform?embedded=true"
         >
           Request Demo
