@@ -4,6 +4,7 @@ import { HiBadgeCheck } from 'react-icons/hi'
 import _ from "lodash";
 import React from "react";
 import { DoubleSectionWithH2 } from "components/layouts/section";
+import IllustURL from 'images/fiturlengkap2.svg'
 
 function ListItemWithIcon(props: ListItemProps) {
   return (
@@ -39,7 +40,7 @@ export default function BenefitSection() {
       }
       rightColumn={
         <Flex position="relative" justifyContent="center" alignItems="center">
-          <Image src="https://digitaldesa.id/templates/homepage/media/misc/icon-landing/fiturlengkap2.svg"
+          <Image src={IllustURL}
           rounded="xl" width="60%"/>
         </Flex>
       }

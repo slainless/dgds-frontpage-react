@@ -2,6 +2,7 @@ import { Box, VStack, Text, Image, Button, Heading } from "@chakra-ui/react";
 import { PlayButton } from "components/button";
 import { DoubleSection, DoubleSectionWithH2 } from "components/layouts/section";
 import React from "react";
+import { StaticImage } from 'gatsby-plugin-image'
 
 export default function FeatureSection() {
   return (
@@ -15,10 +16,11 @@ export default function FeatureSection() {
       }
       rightColumn={
         <Box position="relative">
-          <Image 
-            src="https://digitaldesa.id/templates/homepage/media/misc/solusiDigitalBG.png"
-            rounded="xl"
-          />
+          <Box sx={{ '& > *': { rounded: 'xl' }}} as="span">
+            <StaticImage 
+              src="../../../images/solusiDigitalBG.png"
+            />
+          </Box>
           <PlayButton 
             position="absolute" aria-label="Play video"
             top="50%" left="50%"

@@ -4,8 +4,8 @@ import _ from "lodash";
 import React, { Fragment, useState } from "react";
 import { mdx } from '@mdx-js/react'
 import marked from "marked";
-import { HiOutlinePlus } from "react-icons/hi";
-import { renderToString } from "preact-render-to-string";
+import { DynamicImage } from 'components/image';
+import { getImage } from 'gatsby-plugin-image';
 
 const VStackTemplate = (props: Omit<StackProps, 'children'> & {
   title: string, content: string
@@ -31,6 +31,7 @@ type Data = {
   title: string,
   plus: string,
   min: string
+  iconFile: any
 }
 export default function ComparisonSection({ data }: { data: Data[] }) {
   return (
@@ -44,21 +45,22 @@ export default function ComparisonSection({ data }: { data: Data[] }) {
           <Text as="h4" visibility="hidden" textStyle="section">Spacer</Text>
           <Text as="h4" textStyle="section">Dengan Digides</Text>
         </>
-        { data.map?.(({ title, iconSrc, plus, min }, index) => (
-          <Fragment key={index}>
+        { data.map?.(({ title, iconSrc, iconFile, plus, min }, index) => {
+          const image = getImage(iconFile)
+          return <Fragment key={index}>
             <VStackTemplate 
               title={title} content={min}
               bgColor="red.100"
             />
             <Flex width="100%">
-              <Image src={iconSrc}/>
+              <DynamicImage src={iconFile?.publicURL} image={image}/>
             </Flex>
             <VStackTemplate 
               title={title} content={plus}
               bgColor="brand.200"
             />
           </Fragment>
-        )) }
+        }) }
       </Grid>
     </SectionWithH2>
   )

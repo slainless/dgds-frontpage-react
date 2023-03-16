@@ -1,11 +1,12 @@
 import { Heading, VStack, HStack, Button, Tooltip } from "@chakra-ui/react";
 import React from "react";
+import BackgroundURL from 'images/bg-landing5.jpg'
 
 export default function TitleSection() {
   return (
   <VStack id="title"
     height="100vh" mx="calc(var(--page-px) * -1)"
-    bgImage="https://digitaldesa.id/templates/homepage/media/bg/bg-landing5.jpg" bgSize="cover"
+    bgImage={BackgroundURL} bgSize="cover"
     alignItems="center" justifyContent="center"
   >
     <Heading as="h1" fontSize="6xl" fontWeight="bold" 

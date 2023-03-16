@@ -1,40 +1,40 @@
 - title: Administrasi
   content: Pengelola sistem informasi administrasi secara mandiri
-  icon: https://digitaldesa.id/templates/homepage/media/misc/icon/digides_administrasi.svg
+  icon: solution/digides_administrasi.svg
   media:
-    src: https://digitaldesa.id/templates/homepage/media/preview-fitur/administrasi.webp
+    src: solution/administrasi.webp
     width: 78%
 
 - title: Pelayanan
   content: Sistem pelayanan online untuk administrasi desa
-  icon: https://digitaldesa.id/templates/homepage/media/misc/icon/digides_pelayanan.svg
+  icon: solution/digides_pelayanan.svg
   media:
-    src: https://digitaldesa.id/templates/homepage/media/preview-fitur/pelayanan.webp
+    src: solution/pelayanan.webp
     width: 90%
 
 - title: Perpajakan 
   content: Sistem pencatatan pajak mulai dari rekapitulasi perpajakan
-  icon: https://digitaldesa.id/templates/homepage/media/misc/icon/digides_perpajakan.svg
+  icon: solution/digides_perpajakan.svg
   media:
-    src: https://digitaldesa.id/templates/homepage/media/preview-fitur/perpajakan.webp
+    src: solution/perpajakan.webp
     width: 85%
 
 - title: Bantuan Sosial 
   content: Menyimpan dan mengelola data penerima bantuan sosial
-  icon: https://digitaldesa.id/templates/homepage/media/misc/icon/digides_bansos.svg
+  icon: solution/digides_bansos.svg
   media:
-    src: https://digitaldesa.id/templates/homepage/media/preview-fitur/bansos.webp
+    src: solution/bansos.webp
     width: 85%
 
 - title: Webprofil 
   content: Website profil untuk meningkatkan potensi wisata desa
-  icon: https://digitaldesa.id/templates/homepage/media/misc/icon/digides_webdesa.svg
+  icon: solution/digides_webdesa.svg
   media:
-    src: https://digitaldesa.id/templates/homepage/media/preview-fitur/webprofil.webp
+    src: solution/webprofil.webp
     width: 90%
 
 - title: Android App 
   content: Marketplace dan permintaan surat eksklusif untuk warga anda
-  icon: https://digitaldesa.id/templates/homepage/media/misc/icon/digides_app.svg
+  icon: solution/digides_app.svg
   media:
-    src: https://digitaldesa.id/templates/homepage/media/preview-fitur/android.webp
+    src: solution/android.webp

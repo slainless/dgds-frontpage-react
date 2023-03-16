@@ -2,12 +2,16 @@ import { Box, BoxProps, HStack, VStack, Text, HeadingProps, Heading, TextProps, 
 import { SectionWithH2 } from "components/layouts/section";
 import _ from "lodash";
 import React, { useEffect, useState } from "react";
+import { DynamicImage } from 'components/image';
+import { getImage } from 'gatsby-plugin-image';
 
 type Data = {
   title: string
   content: string
   iconSrc: string
   media: ImageProps
+  mediaFile: any
+  iconFile: any
 }
 export default function SolutionSection({ data }: { data: Data[] }) {
   const [showIndex, setShowIndex] = useState<number>(0)
@@ -31,15 +35,17 @@ export default function SolutionSection({ data }: { data: Data[] }) {
         gridColumn="2" gridRow="1/span 3" 
         justifyContent="center" alignItems="center"
       >{ 
-        data.map?.((data, index) => (
-          <Image 
+        data.map?.((data, index) => {
+          const image = getImage(data.mediaFile)
+          return <DynamicImage 
             {...data.media} display={index === showIndex ? 'flex' : 'none'}
-            key={data.title + 'icon'}
+            key={data.title + 'icon'} image={image} src={data.mediaFile?.publicURL}
           />
-      ))}
+        })}
       </Flex>{ 
-        data.map?.((data, index) => (
-          <Box 
+        data.map?.((data, index) => {
+          const image = getImage(data.iconFile)
+          return <Box 
             key={data.title}
             data-active={index === showIndex ? true : null}
             onClick={() => setShowIndex(index)}
@@ -60,13 +66,13 @@ export default function SolutionSection({ data }: { data: Data[] }) {
           >
             <HStack width="100%" pb={3} alignItems="center">
               <Box width={14} mr={5}>
-                <Image src={data.iconSrc}/>
+                <DynamicImage src={data.iconFile?.publicURL} image={image}/>
               </Box>
               <Text as="h4" textAlign="center" fontWeight="semibold">{data.title}</Text>
             </HStack>
             <Text fontSize="xs">{data.content}</Text>
           </Box>
-      ))}
+        })}
     </Grid>
   </SectionWithH2>)
 }

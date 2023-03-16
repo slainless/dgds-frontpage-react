@@ -2,6 +2,8 @@ import { Box, Flex, VStack, Text, HStack, Heading, Image, useDisclosure, Button 
 import React, { SyntheticEvent, useEffect, useState } from "react";
 import _ from "lodash";
 import { SectionWithH2 } from "components/layouts/section";
+import { getImage } from 'gatsby-plugin-image'
+import { DynamicImage } from "components/image"
 
 const getElementRect = (query: string): DOMRect =>
   document.querySelector(query)!.getBoundingClientRect().toJSON()
@@ -23,7 +25,8 @@ function observeResize(): Promise<[DOMRect, DOMRect]> {
 type Data = { 
   iconSrc: string, 
   name: string, 
-  number: number 
+  number: number,
+  iconFile: any
 }
 export default function UsedBySection({ data }: { data: Data[] }) {
   const { isOpen, onToggle }        = useDisclosure()
@@ -45,18 +48,19 @@ export default function UsedBySection({ data }: { data: Data[] }) {
     <SectionWithH2 id="digunakan" title="Telah digunakan oleh beberapa desa secara mandiri di">
       <VStack spacing={5}>
         <Flex id="digunakan-content" flexWrap="wrap" justifyContent="center">{ 
-          data.map?.(({ iconSrc, name, number }, index) => (
-            <VStack 
+          data.map?.(({ iconSrc, name, number, iconFile }, index) => {
+            const image = getImage(iconFile)
+            return <VStack 
               flexBasis={`${100/6}%`} my={5} key={index}
               display={isOpen === false && index > 11 ? 'none' : 'flex'}
             >
               <Flex justifyContent="center" alignItems="center">
-                <Image width="80%" src={iconSrc}/>
+                <DynamicImage width="80%" src={iconFile?.publicURL} image={image}/>
               </Flex>
               <Heading as='h4' size="md" textAlign="center">Kab. {name}</Heading>
               <Text>{number} Desa/Kelurahan</Text>
             </VStack>
-          ))
+          })
         }
         </Flex>
         <Button

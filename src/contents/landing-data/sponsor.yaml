@@ -1,11 +1,11 @@
 - name: Telkom Indonesia
-  icon: https://digitaldesa.id/templates/homepage/media/logo/telkom.png
+  icon: sponsor/telkom.webp
 
 - name: Indigo Creative Nation
-  icon: https://digitaldesa.id/templates/homepage/media/logo/indigo.png
+  icon: sponsor/indigo.webp
 
 - name: Saoraja Hub
-  icon: https://digitaldesa.id/templates/homepage/media/logo/saoraja.png
+  icon: sponsor/saoraja.webp
 
 - name: DSLaunchpad
-  icon: https://digitaldesa.id/templates/homepage/media/logo/dslaunchpad.png
+  icon: sponsor/dslaunchpad.webp

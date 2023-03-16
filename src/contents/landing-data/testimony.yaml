@@ -2,7 +2,7 @@
 - title: Kades Pao-Pao, Kab. Barru
   name: Syamsul Bahri, S.E.
   media:
-    src: https://digitaldesa.id/templates/homepage/media/testimoni/kades-pao-pao.webp 
+    src: testimony/kades-pao-pao.webp 
     width: 400px 
     height: 480px
   content: >
@@ -13,7 +13,7 @@
 - title: Kades Sengeng Palie
   name: Mardatillah Latif
   media:
-    src: https://digitaldesa.id/templates/homepage/media/testimoni/kades-sengeng-palie.webp
+    src: testimony/kades-sengeng-palie.webp
   content: >
     Alhamdulillah,Digides merupakan aplikasi yang hadir dan menjawab semua pertanyaan kami di desa, 
     playan cepat,,trbuka , hmpir semua plyanan bs d tangan ,efisien & mngispirasi masy dlm hal penggunaan IT,, 
@@ -23,7 +23,7 @@
 - title: Kades Koreiha
   name: Andi Baharuddin
   media:
-    src: https://digitaldesa.id/templates/homepage/media/testimoni/kades-koreiha.webp
+    src: testimony/kades-koreiha.webp
   content: >
     Alhamdulillah, sejak kami menggunakan aplikasi Digides dalam bentuk pelayanan, kami merasa sangat terbantu 
     bahkan masyarakat bisa setiap saat bisa mengajukan permohonan pembuatan persuratan menggunakan android. 
@@ -32,7 +32,7 @@
 - title: Kades Karang Jaya
   name: M. Rafiuddin, S.Ag.
   media:
-    src: https://digitaldesa.id/templates/homepage/media/testimoni/kades-karang-jaya.webp 
+    src: testimony/kades-karang-jaya.webp 
     width: 420px 
     height: 480px
   content: >
@@ -46,7 +46,7 @@
 - title: Kades Loa Duri Ilir, Kab. Kutai Kartanegara
   name: H. Fakri Arsyad
   media:
-    src: https://digitaldesa.id/templates/homepage/media/testimoni/kades-loa-duri-ilir.webp 
+    src: testimony/kades-loa-duri-ilir.webp 
     width: 250px 
     height: 301px
   content: >
@@ -57,7 +57,7 @@
 - title: Kades Balantang, Kab. Luwu Timur
   name: Musakkir Laiming, S.Pd.
   media:
-    src: https://digitaldesa.id/templates/homepage/media/testimoni/kades-balantang.webp
+    src: testimony/kades-balantang.webp
   content: >
     Peran Digides dalam mengembangkan desa digital sangat membantu untuk menggerakkan 
     Ekonomi Masyarakat (marketplace) dan juga Pelayanan Administrasi Desa terutama di masa pandemi. 
@@ -67,7 +67,7 @@
 - title: Kades Mananggu, Kab. Boalemo
   name: Noldy Talib, A.Md.
   media:
-    src: https://digitaldesa.id/templates/homepage/media/testimoni/kades-mananggu.webp
+    src: testimony/kades-mananggu.webp
   content: >
     Sistem Digides ini Alhamdulillah sangat membantu pelayanan desa. Kami juga sudah sosialisasikan 
     ke masyarakat khususnya mahasiswa yang studi di luar untuk mengakses pelayanan desa harus 
@@ -76,7 +76,7 @@
 - title: Kades Senga Selatan, Kab. Luwu
   name: ANDI MUH. ARFAN BASMIN, S.H.
   media:
-    src: https://digitaldesa.id/templates/homepage/media/testimoni/kades-senga-selatan.webp
+    src: testimony/kades-senga-selatan.webp
   content: >
     Alhamdulillah, setelah mengadopsi sistem Digides pelayanan publik tidak repot-repot lagi. 
     Percepatan pelayanan, ruang informasi jadi terbuka. Yang lebih nyamannya pelayanan desa itu bisa 

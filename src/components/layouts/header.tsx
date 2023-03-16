@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Flex, HStack, Spacer } from "@chakra-ui/layout";
 import { Link, Image } from "@chakra-ui/react";
 import NavBar from "./navbar";
+import { StaticImage } from 'gatsby-plugin-image'
+import LogoURL from 'images/neo-logo-digides.svg'
 
 export default function Header({ enableTransparency = false }: { 
   enableTransparency: boolean
@@ -63,8 +65,8 @@ export default function Header({ enableTransparency = false }: {
       }}
     >
       <Flex as={Link} href="/" width={36} sx={{ '[data-dense] > &': { width: 32 } }}>
-        <Image 
-          id="digides-logo" src="https://digitaldesa.id/templates/homepage/media/logo/neo-logo-digides.svg"
+        <img 
+          id="digides-logo" src={LogoURL}
           width="100%"
         />
       </Flex>

@@ -18,6 +18,12 @@ export const query = graphql`
     comparison: allComparisonYaml {
       nodes {
         iconSrc: icon
+        iconFile {
+          publicURL
+          childImageSharp {
+            gatsbyImageData
+          }
+        }
         title
         plus
         min
@@ -27,6 +33,18 @@ export const query = graphql`
     solution: allSolutionYaml {
       nodes {
         iconSrc: icon
+        iconFile {
+          publicURL
+          childImageSharp {
+            gatsbyImageData
+          }
+        }
+        mediaFile {
+          publicURL
+          childImageSharp {
+            gatsbyImageData
+          }
+        }
         title
         content
         media {
@@ -39,6 +57,12 @@ export const query = graphql`
     statistic: allStatisticYaml {
       nodes {
         iconSrc: icon
+        iconFile {
+          publicURL
+          childImageSharp {
+            gatsbyImageData
+          }
+        }
         name
         number
       }
@@ -49,6 +73,12 @@ export const query = graphql`
         media {
           src
         }
+        mediaFile {
+          publicURL
+          childImageSharp {
+            gatsbyImageData
+          }
+        }
         name
         title
         content
@@ -58,6 +88,12 @@ export const query = graphql`
     user: allUserYaml {
       nodes {
         iconSrc: icon
+        iconFile {
+          publicURL
+          childImageSharp {
+            gatsbyImageData
+          }
+        }
         name
         number
       }
@@ -67,6 +103,12 @@ export const query = graphql`
       nodes {
         name
         iconSrc: icon
+        iconFile {
+          publicURL
+          childImageSharp {
+            gatsbyImageData
+          }
+        }
       }
     }
   }
