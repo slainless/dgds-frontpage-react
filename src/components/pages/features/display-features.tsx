@@ -4,22 +4,30 @@ import { SectionWithH2 } from "components/layouts/section"
 import useCarousel from "functions/use-carousel"
 import { graphql, useStaticQuery } from "gatsby"
 import React from "react"
+import { getImage } from 'gatsby-plugin-image'
+import { DynamicImage } from 'components/image'
 
 export function AllFeatureDisplay() {
   const { ref: carouselRef, scrollRight, scrollLeft } = useCarousel<HTMLDivElement>()
   const data = useStaticQuery(graphql`
     query {
-      pages: allSitePage(filter: {path: {regex: "^/fitur/"}}) {
+      pages: allMdx(filter: {fields: {group: {eq: "features"}}}) {
         edges {
           node {
-            path
-            context {
-              frontmatter {
-                summary
-                title
-                icon {
-                  src
-                  width
+            fields {
+              path
+            }
+            frontmatter {
+              summary
+              title
+              icon {
+                src
+                width
+              }
+              iconFile {
+                publicURL
+                childImageSharp {
+                  gatsbyImageData
                 }
               }
             }
@@ -32,8 +40,9 @@ export function AllFeatureDisplay() {
     summary: string
     title: string
     icon: { src: string, width: string }
+    iconFile?: any
     path: string
-  }[] = data.pages?.edges?.map?.(edge => ({ ...edge.node.context.frontmatter, path: edge.node.path}))
+  }[] = data.pages?.edges?.map?.(edge => ({ ...edge.node.frontmatter, path: edge.node.fields.path}))
 
   return (
     <SectionWithH2 
@@ -63,26 +72,30 @@ export function AllFeatureDisplay() {
             }
           }}
         >{ 
-          features.map?.(data => (
-            <Box 
-              flexGrow={0} width={`${100/3}%`} flexShrink={0} 
-              transition="all 0.25s ease 0s" px={2} 
-              sx={{ '&': { scrollSnapAlign: 'start' } }}
-            >
-              <VStack bgColor="green.50" px={10} py={10} spacing={5} shadow="md" height="100%">
-                <Heading as="span" size="md">{data.title}</Heading>
-                <AspectRatio ratio={1} width="65%">
-                  <Flex bgColor="white" rounded="full" shadow="inner">
-                    <Image src={data.icon.src} width={data.icon.width}/>
-                  </Flex>
-                </AspectRatio>
-                <Text fontSize="sm" height="auto" flexGrow={1}>{data.summary}</Text>
-                <Button as="a" variant="brand-rounded" href={data.path}>
-                  Lihat Fitur
-                </Button>
-              </VStack>
-            </Box>
-          ))
+          features.map?.(data => {
+            const image = getImage(data)
+            return (
+              <Box 
+                flexGrow={0} width={`${100/3}%`} flexShrink={0} 
+                transition="all 0.25s ease 0s" px={2} 
+                sx={{ '&': { scrollSnapAlign: 'start' } }}
+              >
+                <VStack bgColor="green.50" px={10} py={10} spacing={5} shadow="md" height="100%">
+                  <Heading as="span" size="md">{data.title}</Heading>
+                  <AspectRatio ratio={1} width="65%">
+                    <Flex bgColor="white" rounded="full" shadow="inner">
+                      {/* <Image src={data.icon.src} width={data.icon.width}/> */}
+                      <DynamicImage width="65%" alt={''} image={image} src={data.iconFile?.publicURL}/>
+                    </Flex>
+                  </AspectRatio>
+                  <Text fontSize="sm" height="auto" flexGrow={1}>{data.summary}</Text>
+                  <Button as="a" variant="brand-rounded" href={data.path}>
+                    Lihat Fitur
+                  </Button>
+                </VStack>
+              </Box>
+            )
+          })
         }
         </HStack>
         <ArrowButton 
